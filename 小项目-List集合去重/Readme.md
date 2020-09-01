@@ -1,6 +1,6 @@
 题注：被面试官问到ArrayList如何去重，瞬间惊了，![img](assets/011D1BF52022734FFE6950250EEBDAC4.jpg)，这玩意儿不是有序可重复的吗，我HashSet它不香吗！你要在list里面去重，反正是一个都没答上，无奈百度之，其法众也！！！
 
-下面看看List去重的几种方法！![img](file:///D:\QQ\缓存和下载文件\1007920179\Image\C2C\9AD47F7EEDAADB8C753646561A661144.jpg)
+下面看看List去重的几种方法！![img](assets/9AD47F7EEDAADB8C753646561A661144.jpg)
 
 # List集合去重的几种方式
 
