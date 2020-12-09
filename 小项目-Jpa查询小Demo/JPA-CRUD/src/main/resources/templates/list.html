@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link th:href="@{/assets/css/bootstrap.css}" rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
+		<style type="text/css">
+			body {
+				background-color: #CCCCCC;
+			}
+
+			.table {
+				line-height: 2;
+			}
+
+			tbody>tr {
+				background-color: #FFFFFF;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<main>
+				<!-- 搜索 -->
+				<div class="row" style="margin: 50px 0;">
+					<div class="offset-1 col-10">
+						<form th:action="@{/list/specQuery}" action="/specQuery" method="get" class="form-inline" style="font-size: 20px;" >
+							<div class="form-group mx-sm-3 mb-2">
+								<label>员工编号：</label>
+								<input name="empNo" type="text" class="form-control" placeholder="请输入">
+							</div>
+							<div class="form-group mx-sm-3 mb-2">
+								<label>员工姓名：</label>
+								<input name="empName" type="text" class="form-control" placeholder="请输入">
+							</div>
+
+							<div class="form-group mx-sm-3 mb-2">
+								<label>教育经历：</label>
+								<select name="education" class="form-control">
+									<option selected disabled>--请选择--</option>
+									<option value="小学">小学</option>
+									<option value="初中">初中</option>
+									<option value="高中">高中</option>
+									<option value="专科">专科</option>
+									<option value="大学本科">大学本科</option>
+									<option value="研究生">研究生</option>
+									<option value="博士">博士</option>
+									<option value="博士后">博士后</option>
+									<option value="其他">其他</option>
+								</select>
+							</div>
+
+
+							<button style="margin-left: 118px;" type="submit" class="btn btn-primary btn-md mb-2">开始查询</button>
+							<button style="margin-left: 16px;" type="reset" class="btn btn-warning btn-md mb-2">重置条件</button>
+
+						</form>
+					</div>
+				</div>
+
+				<!-- list -->
+				<div class="row">
+					<div class="offset-1 col-10">
+						<h3><a class="btn btn-success btn-lg" th:href="@{/emp}">添加员工</a></h3>
+						<table class="table">
+							<thead class="thead-dark">
+								<tr>
+									<th scope="col">员工编号</th>
+									<th scope="col">员工姓名</th>
+									<th scope="col">员工性别</th>
+									<th scope="col">员工年龄</th>
+									<th scope="col">出生日期</th>
+									<th scope="col">教育经历</th>
+									<th scope="col">员工邮箱</th>
+									<th scope="col">操作</th>
+								</tr>
+							</thead>
+							<tbody>
+							<!--如果没有员工数据就不显示-->
+								<tr  th:if="${employeeList!=null}" th:each="employee:${employeeList}">
+									<th th:text="${employee.empNo}"></th>
+									<th th:text="${employee.empName}"></th>
+									<th th:text="${employee.gender}"></th>
+									<th th:text="${employee.age}"></th>
+									<th th:text="${#dates.format(employee.birth,'yyyy-MM-dd')}"></th>
+									<th th:text="${employee.education}"></th>
+									<th th:text="${employee.email}"></th>
+									<td>
+										<a class="btn btn-primary" th:href="@{/emp/}+${employee.empNo}">编辑</a>
+										<a class="btn btn-danger" onclick="delEmp(this);return false;" th:href="@{/emp/}+${employee.empNo}" >删除</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- 分页 -->
+				<!--如果是动态条件查询就将分页隐藏-->
+				<div class="row"  th:if="${pageInfo!=null}">
+					<div class="offset-5 col-2">
+						<span style="font-size: 30px">
+							共<span style="color: #005cbf" th:text="${pageInfo.totalRecords}"></span>条数据
+
+						</span>
+					</div>
+					<div class=" col-5">
+						<nav aria-label="Page navigation example">
+							<ul class="pagination pagination-lg">
+								<li class="page-item" th:class="${pageInfo.pageNum==0}?'page-item disabled':'page-item'">
+									<a th:href="@{/list/}+${pageInfo.pageNum-1}" class="page-link"  href="#" aria-label="Previous">
+										<span aria-hidden="true">&laquo;</span>
+									</a>
+								</li>
+								<li th:class="${pageInfo.pageNum==pageNum}?'page-item disabled':'page-item'" class="page-item" th:each="pageNum:${#numbers.sequence(0,(pageInfo.totalPages)-1)}">
+									<a th:text="${pageNum+1}" class="page-link" th:href="@{/list/}+${pageNum}" href="#"></a>
+								</li>
+								<li class="page-item" th:class="${pageInfo.pageNum}==(${pageInfo.totalPages}-1)?'page-item disabled':'page-item'">
+									<a th:href="@{/list/}+${pageInfo.pageNum+1}" class="page-link" href="#" aria-label="Next">
+										<span aria-hidden="true">&raquo;</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</main>
+		</div>
+
+		<script>
+			function delEmp(node) {
+				var url = node.href;
+				$.ajax({
+					url:url,
+					type:'DELETE'
+				});
+				alert("删除成功！")
+				window.location.reload();
+			}
+		</script>
+
+		<!-- js引入 -->
+		<script th:src="@{/assets/js/jquery-3.4.1.js}" src="assets/js/jquery-3.4.1.js"></script>
+		<script th:src="@{/assets/js/bootstrap.js}" src="assets/js/bootstrap.js"></script>
+	</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
+
+	</head>
+	<body>
+		<main>
+			<div class="row">
+				<div class="offset-3 col-8">
+					<div class="w-75 p-3" style="background-color: #eee;margin-top: 50px;">
+						<h2 style="color: #007BFF;">新增员工</h2>
+						<form class="form" style="font-size: 20px;">
+
+							<!-- 新增员工，编号自动生成；修改员工，需要回显员工编号； -->
+							<div class="form-group mx-sm-3 mb-2">
+								<label>员工编号：</label>
+								<input type="text" class="form-control" placeholder="请输入">
+							</div>
+
+							<div class="form-group mx-sm-3 mb-2">
+								<label>员工姓名：</label>
+								<input type="text" class="form-control" placeholder="请输入">
+							</div>
+							<div class="form-group mx-sm-3 mb-2">
+								<label for="inputPassword2">员工性别：</label>
+								<select class="form-control">
+									<option selected disabled>--请选择--</option>
+									<option>男</option>
+									<option>女</option>
+								</select>
+							</div>
+							<div class="form-group mx-sm-3 mb-2">
+								<label>员工年龄：</label>
+								<input type="number" class="form-control" placeholder="请输入">
+							</div>
+							<div class="form-group mx-sm-3 mb-2">
+								<label>出生日期：</label>
+								<input type="date" class="form-control" placeholder="请输入">
+							</div>
+							<div class="form-group mx-sm-3 mb-2">
+								<label>教育经历：</label>
+								<select class="form-control">
+									<option selected disabled>--请选择--</option>
+									<option value="">小学</option>
+									<option value="">初中</option>
+									<option value="">高中</option>
+									<option value="">专科</option>
+									<option value="">大学本科</option>
+									<option value="">研究生</option>
+									<option value="">博士</option>
+									<option value="">博士后</option>
+									<option value="">其他</option>
+								</select>
+							</div>
+							<div class="form-group mx-sm-3 mb-2">
+								<label>员工邮箱：</label>
+								<input type="email" class="form-control" placeholder="请输入">
+							</div>
+
+							<div>
+								<button style="margin-left: 42%;position: relative;" type="submit" class="btn btn-primary btn-md mb-2">提交</button>
+								<button type="reset" class="btn btn-primary btn-md mb-2">取消</button>
+							</div>
+
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+
+		</main>
+
+		<!-- js引入 -->
+		<script src="assets/js/jquery-3.4.1.js"></script>
+		<script src="assets/js/bootstrap.js"></script>
+	</body>
+</html>

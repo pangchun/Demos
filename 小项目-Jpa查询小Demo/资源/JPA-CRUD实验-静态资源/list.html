@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
+		<style type="text/css">
+			body {
+				background-color: #CCCCCC;
+			}
+
+			.table {
+				font-size: 20px;
+			}
+
+			tbody>tr {
+				background-color: #FFFFFF;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<main>
+				<!-- 搜索 -->
+				<div class="row" style="margin: 50px 0;">
+					<div class="offset-1 col-10">
+						<form class="form-inline" style="font-size: 20px;">
+							<div class="form-group mx-sm-3 mb-2">
+								<label>员工编号：</label>
+								<input type="text" class="form-control" placeholder="请输入">
+							</div>
+							<div class="form-group mx-sm-3 mb-2">
+								<label>员工姓名：</label>
+								<input type="text" class="form-control" placeholder="请输入">
+							</div>
+							<div class="form-group mx-sm-3 mb-2">
+								<label for="inputPassword2">员工性别：</label>
+								<select class="form-control">
+									<option selected disabled>--请选择--</option>
+									<option>男</option>
+									<option>女</option>
+								</select>
+							</div>
+							<div class="form-group mx-sm-3 mb-2">
+								<label>员工年龄：</label>
+								<input type="number" class="form-control" placeholder="请输入">
+							</div>
+							<div class="form-group mx-sm-3 mb-2">
+								<label>出生日期：</label>
+								<input type="date" class="form-control" placeholder="请输入">
+							</div>
+							<div class="form-group mx-sm-3 mb-2">
+								<label>教育经历：</label>
+								<select class="form-control">
+									<option selected disabled>--请选择--</option>
+									<option value="">小学</option>
+									<option value="">初中</option>
+									<option value="">高中</option>
+									<option value="">专科</option>
+									<option value="">大学本科</option>
+									<option value="">研究生</option>
+									<option value="">博士</option>
+									<option value="">博士后</option>
+									<option value="">其他</option>
+								</select>
+							</div>
+							<div class="form-group mx-sm-3 mb-2">
+								<label>员工邮箱：</label>
+								<input type="email" class="form-control" placeholder="请输入">
+							</div>
+
+							<button style="margin-left: 118px;" type="submit" class="btn btn-primary btn-md mb-2">开始查询</button>
+							<button style="margin-left: 16px;" type="submit" class="btn btn-warning btn-md mb-2">重置条件</button>
+
+						</form>
+					</div>
+				</div>
+
+				<!-- list -->
+				<div class="row">
+					<div class="offset-1 col-10">
+						<h3><a class="btn btn-success btn-lg">添加员工</a></h3>
+						<table class="table">
+							<thead class="thead-dark">
+								<tr>
+									<th scope="col">员工编号</th>
+									<th scope="col">员工姓名</th>
+									<th scope="col">员工性别</th>
+									<th scope="col">员工年龄</th>
+									<th scope="col">出生日期</th>
+									<th scope="col">教育经历</th>
+									<th scope="col">员工邮箱</th>
+									<th scope="col">操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th>1001</th>
+									<td>张三</td>
+									<td>男</td>
+									<td>23</td>
+									<td>1997/12/29</td>
+									<td>大学本科</td>
+									<td>zhangSan@mail.com</td>
+									<td>
+										<a class="btn btn-primary">编辑</a>
+										<a class="btn btn-danger">删除</a>
+									</td>
+								</tr>
+								<tr>
+									<th>1001</th>
+									<td>张三</td>
+									<td>男</td>
+									<td>23</td>
+									<td>1997/12/29</td>
+									<td>大学本科</td>
+									<td>zhangSan@mail.com</td>
+									<td>
+										<a class="btn btn-primary">编辑</a>
+										<a class="btn btn-danger">删除</a>
+									</td>
+								</tr>
+								<tr>
+									<th>1001</th>
+									<td>张三</td>
+									<td>男</td>
+									<td>23</td>
+									<td>1997/12/29</td>
+									<td>大学本科</td>
+									<td>zhangSan@mail.com</td>
+									<td>
+										<a class="btn btn-primary">编辑</a>
+										<a class="btn btn-danger">删除</a>
+									</td>
+								</tr>
+								<tr>
+									<th>1001</th>
+									<td>张三</td>
+									<td>男</td>
+									<td>23</td>
+									<td>1997/12/29</td>
+									<td>大学本科</td>
+									<td>zhangSan@mail.com</td>
+									<td>
+										<a class="btn btn-primary">编辑</a>
+										<a class="btn btn-danger">删除</a>
+									</td>
+								</tr>
+								<tr>
+									<th>1001</th>
+									<td>张三</td>
+									<td>男</td>
+									<td>23</td>
+									<td>1997/12/29</td>
+									<td>大学本科</td>
+									<td>zhangSan@mail.com</td>
+									<td>
+										<a class="btn btn-primary">编辑</a>
+										<a class="btn btn-danger">删除</a>
+									</td>
+								</tr>
+								<tr>
+									<th>1001</th>
+									<td>张三</td>
+									<td>男</td>
+									<td>23</td>
+									<td>1997/12/29</td>
+									<td>大学本科</td>
+									<td>zhangSan@mail.com</td>
+									<td>
+										<a class="btn btn-primary">编辑</a>
+										<a class="btn btn-danger">删除</a>
+									</td>
+								</tr>
+								<tr>
+									<th>1001</th>
+									<td>张三</td>
+									<td>男</td>
+									<td>23</td>
+									<td>1997/12/29</td>
+									<td>大学本科</td>
+									<td>zhangSan@mail.com</td>
+									<td>
+										<a class="btn btn-primary">编辑</a>
+										<a class="btn btn-danger">删除</a>
+									</td>
+								</tr>
+								<tr>
+									<th>1001</th>
+									<td>张三</td>
+									<td>男</td>
+									<td>23</td>
+									<td>1997/12/29</td>
+									<td>大学本科</td>
+									<td>zhangSan@mail.com</td>
+									<td>
+										<a class="btn btn-primary">编辑</a>
+										<a class="btn btn-danger">删除</a>
+									</td>
+								</tr>
+
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- 分页 -->
+				<div class="row">
+					<div class="offset-5 col-7">
+						<nav aria-label="Page navigation example">
+							<ul class="pagination pagination-lg">
+								<li class="page-item">
+									<a class="page-link" href="#" aria-label="Previous">
+										<span aria-hidden="true">&laquo;</span>
+									</a>
+								</li>
+								<li class="page-item"><a class="page-link" href="#">1</a></li>
+								<li class="page-item"><a class="page-link" href="#">2</a></li>
+								<li class="page-item"><a class="page-link" href="#">3</a></li>
+								<li class="page-item">
+									<a class="page-link" href="#" aria-label="Next">
+										<span aria-hidden="true">&raquo;</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</main>
+		</div>
+
+		<!-- js引入 -->
+		<script src="assets/js/jquery-3.4.1.js"></script>
+		<script src="assets/js/bootstrap.js"></script>
+	</body>
+</html>

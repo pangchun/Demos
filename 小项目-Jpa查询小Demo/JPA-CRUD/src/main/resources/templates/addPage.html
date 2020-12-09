@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link th:href="@{/assets/css/bootstrap.css}" rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
+
+	</head>
+	<body>
+		<main>
+			<div class="row">
+				<div class="offset-3 col-8">
+					<div class="w-75 p-3" style="background-color: #eee;margin-top: 50px;">
+						<h2 style="color: #007BFF;" th:text="${employee!=null}?'编辑员工':'新增员工'"></h2>
+						<form th:action="@{/emp}" method="post" class="form" style="font-size: 20px;">
+							<input th:if="${employee!=null}" name="_method" value="put" type="hidden">
+
+							<!-- 新增员工，编号自动生成；修改员工，需要回显员工编号；但是员工编号不能修改 -->
+							<div class="form-group mx-sm-3 mb-2" th:if="${employee!=null}">
+								<label>员工编号：</label> <!--这里特别注意 不能用disabled 只能用readonly 不然后台接受到的empNo会是null-->
+								<input th:value="${employee.empNo}" readonly name="empNo" type="number" class="form-control" placeholder="请输入">
+							</div>
+							<div class="form-group mx-sm-3 mb-2">
+								<label>员工姓名：</label>
+								<input th:value="${employee!=null}?${employee.empName}" name="empName" type="text" class="form-control" placeholder="请输入">
+							</div>
+							<div class="form-group mx-sm-3 mb-2">
+								<label>员工性别：</label>
+								<select name="gender" class="form-control">
+									<option selected disabled>--请选择--</option>
+									<option th:selected="${employee!=null}?(${employee.gender=='男'}?true)" value="男">男</option>
+									<option th:selected="${employee!=null}?(${employee.gender=='女'}?true)" value="女">女</option>
+								</select>
+							</div>
+							<div class="form-group mx-sm-3 mb-2">
+								<label>员工年龄：</label>
+								<input th:value="${employee!=null}?${employee.age}" name="age" type="number" class="form-control" placeholder="请输入">
+							</div>
+							<div class="form-group mx-sm-3 mb-2">
+								<label>出生日期：</label>
+								<input th:value="${employee!=null}?${#dates.format(employee.birth,'yyyy-MM-dd')}" name="birth" type="date" class="form-control" placeholder="请输入">
+							</div>
+							<div class="form-group mx-sm-3 mb-2">
+								<label>教育经历：</label>
+								<select name="education" class="form-control">
+									<option selected disabled>--请选择--</option>
+									<option th:selected="${employee!=null}?(${employee.education=='小学'}?true)" value="小学">小学</option>
+									<option th:selected="${employee!=null}?(${employee.education=='初中'}?true)" value="初中">初中</option>
+									<option th:selected="${employee!=null}?(${employee.education=='高中'}?true)" value="高中">高中</option>
+									<option th:selected="${employee!=null}?(${employee.education=='专科'}?true)" value="专科">专科</option>
+									<option th:selected="${employee!=null}?(${employee.education=='大学本科'}?true)" value="大学本科">大学本科</option>
+									<option th:selected="${employee!=null}?(${employee.education=='研究生'}?true)" value="研究生">研究生</option>
+									<option th:selected="${employee!=null}?(${employee.education=='博士'}?true)" value="博士">博士</option>
+									<option th:selected="${employee!=null}?(${employee.education=='博士后'}?true)" value="博士后">博士后</option>
+									<option th:selected="${employee!=null}?(${employee.education=='其他'}?true)" value="其他">其他</option>
+								</select>
+							</div>
+							<div class="form-group mx-sm-3 mb-2">
+								<label>员工邮箱：</label>
+								<input th:value="${employee!=null}?${employee.email}" name="email" type="email" class="form-control" placeholder="请输入">
+							</div>
+
+							<div>
+								<button style="margin-left: 42%;position: relative;" type="submit" class="btn btn-primary btn-md mb-2">提交</button>
+								<a th:href="@{/list}" class="btn btn-primary btn-md mb-2">取消</a>
+							</div>
+
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+
+		</main>
+
+		<!-- js引入 -->
+		<script th:src="@{/assets/js/jquery-3.4.1.js}" src="assets/js/jquery-3.4.1.js"></script>
+		<script th:src="@{/assets/js/bootstrap.js}" src="assets/js/bootstrap.js"></script>
+	</body>
+</html>
